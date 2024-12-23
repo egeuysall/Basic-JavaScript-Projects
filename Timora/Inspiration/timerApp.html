@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .timer-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+        }
+        h1 {
+            color: #333;
+        }
+        .time {
+            font-size: 48px;
+            margin: 20px 0;
+        }
+        .controls button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+        .start-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .reset-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .controls button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="timer-container">
+        <h1>Timer</h1>
+        <div class="time" id="time-display">00:00</div>
+        <div class="controls">
+            <button class="start-btn" id="start-btn" onclick="startTimer()">Start</button>
+            <button class="reset-btn" id="reset-btn" onclick="resetTimer()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let timer;
+        let seconds = 0;
+        let isRunning = false;
+
+        function startTimer() {
+            if (isRunning) {
+                clearInterval(timer);
+                document.getElementById('start-btn').innerText = 'Start';
+                isRunning = false;
+            } else {
+                timer = setInterval(() => {
+                    seconds++;
+                    document.getElementById('time-display').innerText = formatTime(seconds);
+                }, 1000);
+                document.getElementById('start-btn').innerText = 'Pause';
+                isRunning = true;
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            seconds = 0;
+            document.getElementById('time-display').innerText = formatTime(seconds);
+            document.getElementById('start-btn').innerText = 'Start';
+            isRunning = false;
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${padZero(minutes)}:${padZero(remainingSeconds)}`;
+        }
+
+        function padZero(value) {
+            return value < 10 ? `0${value}` : value;
+        }
+    </script>
+
+</body>
+</html>

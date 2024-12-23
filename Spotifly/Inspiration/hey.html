@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(180deg, #5a3d2b 0%, #8b5f3c 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+        .player {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            width: 400px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+        .album-art {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+        .info {
+            margin-top: 20px;
+        }
+        .info h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        .info p {
+            color: #bbb;
+            font-size: 18px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .controls button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            margin: 0 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .controls button:hover {
+            color: #1db954;
+        }
+
+        /* Styled progress bar */
+        input[type="range"] {
+            width: 80%;
+            margin-top: 20px;
+            background: linear-gradient(to right, #1db954 0%, #444 100%);
+            height: 8px;
+            border-radius: 5px;
+            outline: none;
+            appearance: none;
+        }
+
+        /* Progress bar thumb styling */
+        input[type="range"]::-webkit-slider-thumb {
+            background: #1db954;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            background: #1ed760;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            background: #1db954;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="range"]::-moz-range-thumb:hover {
+            background: #1ed760;
+        }
+
+        input[type="range"]::-ms-thumb {
+            background: #1db954;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="range"]::-ms-thumb:hover {
+            background: #1ed760;
+        }
+
+        /* Styled volume slider */
+        #volume {
+            background: linear-gradient(to right, #1db954 0%, #444 100%);
+        }
+
+        .lyrics-preview {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #aaa;
+            font-style: italic;
+        }
+        .playlist {
+            margin-top: 40px;
+            max-height: 150px;
+            overflow-y: auto;
+            text-align: left;
+            font-size: 14px;
+            color: #bbb;
+            padding: 10px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .playlist li {
+            list-style: none;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .playlist li:hover {
+            color: #1db954;
+        }
+    </style>
+</head>
+<body>
+    <div class="player">
+        <img src="https://www.gstatic.com/webp/gallery/1.jpg" alt="Album Art" class="album-art">
+        <div class="info">
+            <h1>Kaybolan Yıllar</h1>
+            <p>Seden Alkan</p>
+        </div>
+        <div class="controls">
+            <button id="prev"><i class="fas fa-backward"></i></button>
+            <button id="play" onclick="togglePlay()"><i class="fas fa-play"></i></button>
+            <button id="next"><i class="fas fa-forward"></i></button>
+        </div>
+        <input type="range" id="progress" value="0" max="100">
+        <input type="range" id="volume" value="50" max="100">
+        <div class="lyrics-preview">
+            <p>Dönüşü yok, beraberce karar verdik ayrılmaya...</p>
+        </div>
+        <ul class="playlist">
+            <li>Song 1 - Artist 1</li>
+            <li>Song 2 - Artist 2</li>
+            <li>Song 3 - Artist 3</li>
+            <li>Song 4 - Artist 4</li>
+        </ul>
+    </div>
+
+    <script>
+        let isPlaying = false;
+
+        function togglePlay() {
+            const playButton = document.getElementById('play');
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                playButton.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                playButton.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        document.getElementById('prev').addEventListener('click', function() {
+            alert('Previous song');
+        });
+
+        document.getElementById('next').addEventListener('click', function() {
+            alert('Next song');
+        });
+
+        document.getElementById('progress').addEventListener('input', function(event) {
+            let value = event.target.value;
+            console.log('Progress: ' + value + '%');
+        });
+
+        document.getElementById('volume').addEventListener('input', function(event) {
+            let value = event.target.value;
+            console.log('Volume: ' + value + '%');
+        });
+    </script>
+</body>
+</html>

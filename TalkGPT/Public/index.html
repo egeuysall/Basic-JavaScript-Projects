@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT API Example</title>
+</head>
+<body>
+    <h1>Chat with GPT</h1>
+    <textarea id="userInput" placeholder="Type your message here"></textarea>
+    <button id="sendButton">Send</button>
+    <h3>Response:</h3>
+    <p id="response"></p>
+
+    <script>
+        const sendButton = document.getElementById('sendButton');
+        const userInput = document.getElementById('userInput');
+        const responseElement = document.getElementById('response');
+
+        sendButton.addEventListener('click', async () => {
+            const inputText = userInput.value;
+            if (!inputText) return;
+
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer`
+                },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo',  // You can also use 'gpt-4' if you have access
+                    messages: [{ role: 'user', content: inputText }],
+                    max_tokens: 150
+                })
+            });
+
+            const data = await response.json();
+            if (data.choices && data.choices[0]) {
+                responseElement.innerText = data.choices[0].message.content.trim();
+            } else {
+                responseElement.innerText = 'Error: Unable to get response.';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #995740, #2c1912);
+    border-radius: 15px;
+    min-height: 100vh;
+    color: white;
+}
+
+.container {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.main-cover {
+    width: 60%; /* Set the image to 60% width */
+    max-width: 100%; /* Ensure it doesn't exceed container width */
+    height: auto;
+    border-radius: 15px;
+    transition: filter 0.3s ease;
+}
+
+.main-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.main-cover:hover {
+    filter: blur(1.5px);
+}
+
+i {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+i:hover {
+    color: rgb(218, 218, 218);
+}
+
+.dropdown-icon {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.espresso-text {
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-right: 180px;
+    margin-left: 180px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    transition: all 0.3s ease;
+}
+
+.espresso-text:hover {
+    color: rgb(218, 218, 218);
+}
+
+.text {
+    margin-left: 155px;
+    margin-top: 40px;
+}
+
+.title {
+    text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.author {
+    color: rgb(192, 191, 191);
+    font-weight: 500;
+    text-align: left;
+    margin-top: 7px;
+}
+
+/* Optional: You can add some extra styling for the plus icon */
+.title-container i {
+    font-size: 24px; /* Adjust size */
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.title-container i:hover {
+    color: rgb(218, 218, 218);
+}
+
+.plus-icon {
+    font-size: 30px; /* Adjust size if needed */
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: relative; /* Enable positioning */
+    top: -40px; /* Move it a little up */
+    right: -135px;
+}
+
+.plus-icon:hover {
+    color: rgb(218, 218, 218);
+}
+
+/* Styling the progress container */
+.progress-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Styling the input range (progress bar) */
+.progress-bar {
+    width: 75%;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgba(126, 126, 126, 0.4);
+    border-radius: 5px;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 13px; /* Height of the thumb */
+    border-radius: 50%; /* Circular thumb */
+    background: #ffffff; /* Thumb color */
+    border: none;
+    cursor: pointer;
+}
+
+.timer {
+    text-align: left;
+    margin-left: 150px;
+    margin-top: 8px;
+    color: rgb(192, 191, 191);
+    display: inline-block;
+    margin-right: 150px;
+    margin-left: 100px;
+}
