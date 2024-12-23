@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #color-display {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .color-button {
+      width: 100px;
+      height: 100px;
+      border: none;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Color Guessing Game</h1>
+  <p id="color-display">Guess this color: RGB(?, ?, ?)</p>
+  <div class="button-container">
+    <button class="color-button"></button>
+    <button class="color-button"></button>
+    <button class="color-button"></button>
+  </div>
+  <p id="result"></p>
+
+  <script>
+    const colorDisplay = document.getElementById("color-display");
+    const buttons = document.querySelectorAll(".color-button");
+    const result = document.getElementById("result");
+
+    // Generate random RGB color
+    function randomColor() {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    // Initialize game
+    function initGame() {
+      const correctColor = randomColor();
+      colorDisplay.textContent = `Guess this color: ${correctColor}`;
+      const correctButtonIndex = Math.floor(Math.random() * buttons.length);
+
+      buttons.forEach((button, index) => {
+        const random = randomColor();
+        button.style.backgroundColor = index === correctButtonIndex ? correctColor : random;
+
+        button.onclick = () => {
+          if (index === correctButtonIndex) {
+            result.textContent = "Correct!";
+            result.style.color = "green";
+          } else {
+            result.textContent = "Try Again!";
+            result.style.color = "red";
+          }
+        };
+      });
+    }
+
+    initGame();
+  </script>
+</body>
+</html>

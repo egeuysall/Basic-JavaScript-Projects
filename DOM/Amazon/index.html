@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A sample HTML structure">
+    <meta name="author" content="Your Name">
+    <title>Amazon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <p class="amazon">
+                Amazon
+            </p>
+        </div>
+        <div class="main">
+            <input type="number" id="orderCost" placeholder="Cost of Order" min="0" required onkeydown="
+                handleCostKeydown(event)
+            ">
+            <button 
+                id="sumButton" 
+                onclick="calculateTotal()
+                ">
+                Sum
+            </button>
+            <p class="result"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

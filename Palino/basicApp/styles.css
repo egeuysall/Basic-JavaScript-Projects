@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    transition: all 0.2s ease;
+}
+
+body {
+    background-color: #ececec;
+    font-family: "Poppins", serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers content vertically */
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    width: 40%; /* You can adjust this */
+    height: 15%; /* You can adjust this */
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px; /* Optional: for rounded corners */
+    padding: 20px;
+}
+
+.title {
+    font-size: 26px;
+    margin-bottom: 16px;
+}
+
+button {
+    background-color: #ffffff;
+    color: rgb(46, 46, 46);
+    border: 1px solid #d1cfcf;
+    padding: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px; /* Adds space below button */
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+button:active {
+    opacity: 0.7;
+}
+
+.linked-text {
+    text-decoration: none;
+}

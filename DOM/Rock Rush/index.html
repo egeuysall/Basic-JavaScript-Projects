@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <p class="title">DOM</p>
+            <div class="button-container">
+                <button class="rock" onclick="(playGame('Rock'))">Rock</button>
+                <button class="paper" onclick="(playGame('Paper'))">Paper</button>
+                <button class="scissors" onclick="(playGame('Scissors'))">Scissors</button>
+                <button class="reset" onclick="(playGame('Reset'))">Reset</button>
+            </div>
+            <div>
+                <p class="condition" id="current-condition"></p>
+                <p class="condition" id="wins">
+                    Wins: 
+                </p>
+                <p class="condition" id="losses">
+                    Losses: 
+                </p>
+                <p class="condition" id="ties">
+                    Ties: 
+                </p>
+            </div>
+        </div>        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

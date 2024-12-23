@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd or Even Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .game-container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>Guess if the number is Odd or Even</h1>
+        <button onclick="startGame()">Start Game</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function startGame() {
+            let randomNumber = Math.floor(Math.random() * 100) + 1; // Generate a number between 1 and 100
+            let userGuess = prompt("Guess if the number is Odd or Even. Type 'Odd' or 'Even'");
+
+            // Check if the input is valid
+            if (userGuess !== null && (userGuess.toLowerCase() === 'odd' || userGuess.toLowerCase() === 'even')) {
+                let isEven = randomNumber % 2 === 0;
+                let correctGuess = (isEven && userGuess.toLowerCase() === 'even') || (!isEven && userGuess.toLowerCase() === 'odd');
+                
+                document.getElementById('result').innerText = 
+                    `The number was ${randomNumber}. You guessed ${userGuess}. ${correctGuess ? "You win!" : "You lose!"}`;
+            } else {
+                alert("Please enter 'Odd' or 'Even'.");
+            }
+        }
+    </script>
+
+</body>
+</html>

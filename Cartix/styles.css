@@ -1,0 +1,44 @@
+* {
+    font-family: "Poppins", serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ececec;
+}
+
+.container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 15px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    margin: 6px;
+    color: rgb(70, 70, 70);
+    background-color: #ececec;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    color: rgb(53, 53, 53);
+    background-color: #b4b2b2;
+}
+
+button:active {
+    opacity: 0.7;
+}
+
+.add-three {
+    display: block;
+}
